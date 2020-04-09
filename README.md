@@ -73,5 +73,5 @@ npm install
 运行
 
 ```shell
-npm run serve
+npm run dev
 ```
