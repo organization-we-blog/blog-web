@@ -7,7 +7,7 @@
 
 ## 项目概况
 
-we-blog的 前台 项目，要求兼容IE10、IE11
+we-blog的 前台 项目，要求兼容IE11
 
 ## 技术栈
 
@@ -42,6 +42,8 @@ we-blog的 前台 项目，要求兼容IE10、IE11
 > .browserslistrc
 >
 > .eslintrc.js   //语法规范文件
+>
+> .gitignore    //git上传忽略文件配置
 >
 > babel.config.js  //babel配置文件
 >
