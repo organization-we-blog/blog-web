@@ -10,7 +10,7 @@
         <div :class="this.BocClass">
             <div>
                 <div class="logoBox">
-                    <h3>一个菜鸟的博客</h3>
+                    <h3>一堆菜鸟的博客</h3>
                 </div>
                 <el-button type="text" class="itemBtn">首页</el-button>
                 <el-button type="text" class="itemBtn">归档</el-button>
@@ -156,5 +156,4 @@
             display: none;
         }
     }
-
 </style>

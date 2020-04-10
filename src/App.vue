@@ -2,7 +2,7 @@
   <div id="app" name="app">
     <div style="position: fixed;width:100%;top: 0;left: 0;z-index: 3;"><Nav></Nav></div>
     <router-view>
-
+      <!--展示页面的路由-->
     </router-view>
     <div v-show="show" @click="BC" class="UP"><i class="el-icon-caret-top" style="color: #4b9fff"></i></div>
   </div>
