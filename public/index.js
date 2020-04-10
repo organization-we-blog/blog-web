@@ -388,15 +388,14 @@ function timer() {
   let bgiLoadState = setInterval(function () {
     let bgi = document.getElementById("bgi");//首页大图
     if(bgi.complete){//关闭动画
-      drawType = 0;
-      document.getElementById("c").style.opacity = "0";
-      document.getElementById("c").style.zIndex = "-1";
       clearInterval(bgiLoadState);
+      setTimeout(function () {//延迟500ms关闭，因为加载完图片后渲染要一点点时间
+        drawType = 0;
+        document.getElementById("c").style.opacity = "0";
+        document.getElementById("c").style.zIndex = "-1";
+      },500)
     }
   },200);
-
-
-
 }
 
 loadScene();
