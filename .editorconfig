@@ -3,13 +3,14 @@ root = true
 [*.{vue,js}]
 #字符编码格式
 charset = utf-8
-#缩进风格
+#缩进风格为空格
 indent_style = space
 #缩进字符数
 indent_size = 2
 #文件末尾插入新行
 insert_final_newline = true
 #换行符类型
-end_of_line = crlf
+end_of_line = lf
 #去除行尾空格
 trim_trailing_whitespace = true
+
