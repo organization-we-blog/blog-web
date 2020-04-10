@@ -36,8 +36,9 @@
 <div id="app"></div>
 
 
-<script type="text/javascript" size="90" alpha="0.2" zIndex="6" src="./ribbon.js"></script>
-<canvas id="c" style="z-index: 1000"></canvas>
+<script type="text/javascript" size="90" alpha="0.2" zIndex="6" src="./ribbon.js"></script><!--彩色条-->
+
+<canvas id="c" style="z-index: 1000;transition: all 1.5s"></canvas><!--加载动画-->
 <script id="shader-fs" type="x-shader/x-fragment">
 				#ifdef GL_ES
 				  precision highp float;
@@ -57,6 +58,6 @@
   	}
   </script>
 <script src="./index.js"></script>
-
+<img id="bgi" src="/img/cywl800.7648a725.jpg" width="0" height="0"><!--提前加载首页大图-->
 </body>
 </html>
