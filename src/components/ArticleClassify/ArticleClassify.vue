@@ -22,6 +22,7 @@
 <style scoped>
   .ArticleClassifyBox {
     display: inline-block;
+    margin-top: 20px;
     width: 200px;
     text-align: left;
   }

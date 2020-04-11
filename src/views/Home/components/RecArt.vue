@@ -1,5 +1,5 @@
 <template><!--首页展示条件文章组件-->
-  <div style="padding: 30px 0 0 0;display: inline-block;width: 100%">
+  <div style="display: inline-block;width: 100%">
     <div class="box">
       <h2 style="font-size: 23px;color: rgba(0,0,0,.7);font-weight: 700;text-align: left;margin-bottom: 15px">推荐文章</h2>
       <div class="content">
@@ -118,7 +118,7 @@
 
 <style scoped>
   .box {
-    padding-top: 5px;
+    /*padding-top: 5px;*/
     width: 95%;
     min-height: 150px;
     max-width: 750px;

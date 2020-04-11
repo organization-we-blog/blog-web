@@ -1,9 +1,10 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import Home from '../views/Home/Home.vue'
-import Summary from "../views/Summary/Summary"
-import Diary from "../views/Diary/Diary"
-import MessageBoard from "../views/MessageBoard/MessageBoard";
+// 路由
+const Home = () => import('../views/Home/Home.vue');
+const Gather = () => import("../views/Gather/Gather");
+const Diary = () =>import("../views/Diary/Diary");
+const MessageBoard = () => import("../views/MessageBoard/MessageBoard");
 
 Vue.use(VueRouter);
 
@@ -16,9 +17,9 @@ const routes = [
     name: 'Home',
     component: Home
   }, {
-    path: '/summary',
-    name: 'Summary',
-    component: Summary
+    path: '/gather',
+    name: 'Gather',
+    component: Gather
   }, {
     path: '/diary',
     name: 'Diary',
@@ -33,7 +34,10 @@ const routes = [
 const router = new VueRouter({
   mode: 'history',
   base: process.env.BASE_URL,
-  routes
+  routes,
+  scrollBehavior () {
+    return { x: 0, y: 0 }
+  }
 });
 
 export default router

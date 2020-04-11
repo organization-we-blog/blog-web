@@ -6,7 +6,7 @@
     <router-view>
       <!--展示页面的路由-->
     </router-view>
-    <div v-show="show" @click="BC" class="UP"><i class="el-icon-caret-top" style="color: #4b9fff"></i></div>
+    <div v-show="show" @click="BC" class="UP"><i class="el-icon-caret-top" style="color: #4b9fff;"></i></div>
   </div>
 </template>
 
@@ -51,7 +51,7 @@
   }
 </script>
 
-<style lang="less">
+<style lang="less" scoped>
   #app {
     font-family: Avenir, Helvetica, Arial, sans-serif;
     -webkit-font-smoothing: antialiased;
@@ -63,6 +63,7 @@
   * {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
   }
 
   body {
@@ -117,6 +118,7 @@
     box-shadow: 0 0 6px rgba(0, 0, 0, .12);
     transition: background-color 0.3s;
     background-color: #ffffff;
+    text-align: center;
   }
 
   .UP:hover {

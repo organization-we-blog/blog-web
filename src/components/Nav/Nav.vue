@@ -13,7 +13,7 @@
           <h3>一堆菜鸟的博客</h3>
         </div>
         <el-button type="text" class="itemBtn" @click="toHome">首页</el-button>
-        <el-button type="text" class="itemBtn" @click="toSummary">归档</el-button>
+        <el-button type="text" class="itemBtn" @click="toGather">归档</el-button>
         <el-button type="text" class="itemBtn" @click="toDiary">日记</el-button>
         <el-button type="text" class="itemBtn" @click="toMessageBoard">留言</el-button>
         <div style="display: inline-block;width:60%;max-width: 300px;height: 34px;position: relative;margin: 13px 0">
@@ -56,16 +56,23 @@
 
       },
       toHome() {
-        this.$router.push('/home')
+        this.linkTo('/home')
       },
-      toSummary(){
-        this.$router.push('/summary')
+      toGather(){
+        console.log(1);
+        this.linkTo('/gather')
       },
       toDiary(){
-        this.$router.push('/diary')
+        this.linkTo('/diary')
       },
       toMessageBoard(){
-        this.$router.push('/messageboard')
+        this.linkTo('/messageboard')
+      },
+      linkTo(path){
+        let currentPath =this.$route.path;
+        if(currentPath.indexOf(path) == -1) {
+          this.$router.push(path)
+        }
       }
     },
     mounted() {
