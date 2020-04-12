@@ -1,19 +1,31 @@
 <template><!--文章分类组件-->
   <div class="ArticleClassifyBox">
-    <h3>文章分类</h3>
-    <ul>
-      <li><i class="el-icon-arrow-right" style="margin: 0 20px 0 0"></i>vue.js (36)</li>
-      <li><i class="el-icon-arrow-right" style="margin: 0 20px 0 0"></i>node.js (13)</li>
-      <li><i class="el-icon-arrow-right" style="margin: 0 20px 0 0"></i>react (8)</li>
-      <li><i class="el-icon-arrow-right" style="margin: 0 20px 0 0"></i>html5/css3 (21)</li>
-      <li><i class="el-icon-arrow-right" style="margin: 0 20px 0 0"></i>javascript (57)</li>
-    </ul>
+    <h3><i class="el-icon-s-order"></i>文章分类</h3>
+  <SplitLine/>
   </div>
 </template>
 
 <script>
+  import getClassifyAndTag from "../../network/classifyAndTag";
+
   export default {
-    name: "ArticleClassify"
+    name: "ArticleClassify",
+    data() {
+      return {
+        classify: []
+      }
+    },
+    methods: {
+      notify() {
+        this.$message('暂未开放！')
+      }
+    },
+    created() {
+      //请求classify数据
+      getClassifyAndTag('classify').then(res => {
+        this.classify = res
+      })
+    }
   }
 
 
@@ -21,26 +33,16 @@
 
 <style scoped>
   .ArticleClassifyBox {
-    display: inline-block;
+    border-radius: 3px;
+    box-shadow: 0 0 2px rgba(0, 0, 0, .2);
+    padding: 10px;
     margin-top: 20px;
-    width: 200px;
-    text-align: left;
+    background-color: #fff;
   }
 
   .ArticleClassifyBox > h3 {
     color: #969696;
-    margin: 0 0 20px 0;
-  }
-
-  li {
-    list-style-type: none;
-    margin: 0 0 8px 20px;
-    cursor: pointer;
-    user-select: none;
-    color: #969696;
-  }
-
-  li:hover {
-    color: #409EFF;
+    margin: 0;
+    text-align: left;
   }
 </style>

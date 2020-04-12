@@ -47,12 +47,13 @@
   </div>
 </template>
 <script>
+  // 组件
   import BodyContainer from "../../components/BodyContainer/BodyContainer";
   import ArticleList from './components/ArticleList.vue';
   import RecArt from './components/RecArt.vue';
   import SliderBarLeft from "../../components/SliderBarLeft/SliderBarLeft";
   import SliderBarRight from "../../components/SliderBarRight/SliderBarRight";
-  import Footer from '../../components/Footer/Footer.vue';
+  import Footer from '../../components/Footer/Footer.vue'
 
   export default {
     name: 'Home',
@@ -65,7 +66,6 @@
       Footer,
     },
     created() {
-      console.log('home被创建');
     },
     destroyed() {
       console.log('home被销毁');

@@ -56,4 +56,9 @@
     padding: 20px 40px 0 0;
     text-align: left !important;
   }
+  @media screen and (max-width: 750px) {
+    .center {
+      padding-right: 0;
+    }
+  }
 </style>

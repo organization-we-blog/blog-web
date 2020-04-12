@@ -27,7 +27,7 @@
     margin: 0 auto;
     /*margin: 100px auto 0;*/
     position: relative;
-    background-color: #fff;
+    /*background-color: #fff;*/
   }
   .content-center {
     display: inline-block;
@@ -52,8 +52,12 @@
   }
 
   @media screen and (max-width: 750px) {
+    * {
+      padding: 0;
+      margin: 0;
+    }
     .cell-phone {
-      width: 90% !important;
+      width: 100% !important;
     }
     .hidden {
       display: none;

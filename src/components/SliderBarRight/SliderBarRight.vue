@@ -1,14 +1,15 @@
 <template>
-  <div style="background-color:#fff;">
+  <div>
       <!-- 公告栏-->
       <div class="notify hover-shadow">
-        <div class="title" style="font-size: 16px">本站公告</div>
-        <div class="split-line"></div>
+        <h3 class="title" style="margin: 0;color: #969696;text-align: left"><i class="el-icon-warning-outline" style="margin-right: 5px"></i>本站公告</h3>
+        <SplitLine/>
         <div class="msg" style="font-size: 13px">本站正在建设中，敬请期待...</div>
       </div>
       <!--推荐展示-->
       <div class="recommend">
-        <div class="blogger">最新文章</div>
+        <h3 class="blogger" style="margin: 0;color: #969696;text-align: left"><i class="el-icon-s-promotion" style="margin-right: 5px;"></i>最新文章</h3>
+        <SplitLine/>
         <ul>
           <li @mouseenter="increase" @mouseleave="reduce" v-for="(item, index) in 20" :key="index">
             <span class="txt"><i style="margin: 0 3px" class="el-icon-d-arrow-right"></i>这里只是测试用的文字啦啦啦啦啦啦啦啦啦啦</span>
@@ -47,21 +48,16 @@
     padding: 10px;
     border-radius: 3px;
     box-shadow: 0 0 2px rgba(0, 0, 0, .2);
-  }
-
-  .split-line {
-    height: 1px;
-    width: 96%;
-    margin: 10px auto;
-    background-color: #ccc;
+    background-color: #fff;
   }
 
   .recommend {
     margin-top: 20px;
-    padding: 11px 11px 1px;
+    padding: 10px 10px 0.1px;
     box-sizing: border-box;
     border-radius: 3px;
     box-shadow: 0 0 2px rgba(0, 0, 0, .2);
+    background-color: #fff;
   }
   .recommend ul {
     list-style: none;
