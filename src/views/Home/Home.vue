@@ -1,35 +1,23 @@
 <template><!--首页-->
   <div class="home">
+<!--    首页大图-->
     <div class="coverImg">
       <div class="titleBox">
         <h1 class="slogan">记录成长的点滴,做一个爱分享的程序猿</h1>
         <div class="divButton">About The Blog</div>
       </div>
     </div>
-    <!--    <div style="width:100%;position: absolute;top: 100%;">-->
-    <!--      <div class="noticeBox">-->
-    <!--        <div style="position: relative;margin: 0 auto;width: auto">-->
-    <!--          <i class="el-icon-bell" style="font-size: 35px;vertical-align:top;"></i>-->
-    <!--          <span class="notice">婴儿网站，还请各位大佬手下留情</span>-->
-    <!--        </div>-->
-    <!--      </div>-->
-    <!--      <div style="width: 100%;margin: 0 auto">-->
-    <!--        <div class="ClassifyBox">-->
-    <!--          <div class="ladder">-->
-    <!--            <div class="sidebarBox">&lt;!&ndash;侧边栏容器&ndash;&gt;-->
-    <!--              <ArticleClassify></ArticleClassify>-->
-    <!--              <ArticleTag></ArticleTag>-->
-    <!--            </div>-->
-    <!--          </div>-->
-    <!--        </div>-->
-    <!--        <div style="display: inline-block;position: relative;width: 100%;;max-width: 800px;">-->
-    <!--          <RecArt></RecArt>-->
-    <!--          <ArticleList></ArticleList>-->
-    <!--        </div>-->
-    <!--      </div>-->
-    <!--      <Footer></Footer>-->
-    <!--    </div>-->
-    <div style="width:100%;margin-top: 100vh">
+<!--    占位盒子-->
+    <div style="height: 100vh"></div>
+<!--    提示信息-->
+    <div class="noticeBox">
+      <div style="position: relative;margin: 0 auto;width: auto">
+        <i class="el-icon-bell" style="font-size: 35px;vertical-align:top;"></i>
+        <span class="notice">婴儿网站，还请各位大佬手下留情</span>
+      </div>
+    </div>
+<!--    主体内容-->
+    <div style="width:100%;">
       <BodyContainer>
         <template v-slot:left-bar>
           <SliderBarLeft/>
@@ -84,7 +72,6 @@
     top: 0;
     left: 0;
     right: 0;
-    /*width: 100%;*/
     height: 100%;
     background-image: url(../../assets/images/cywl800.jpg);
     background-position: center center;
@@ -135,41 +122,13 @@
     text-align: center;
     line-height: 35px;
     border-radius: 0 0 5px 5px;
+    background-color: #fff;
   }
 
   .notice {
     color: #909090;
     line-height: 35px;
     margin: 0 0 0 10px;
-  }
-
-  .ClassifyBox {
-    display: inline-block;
-    position: relative;
-    top: 100px;
-    margin: 0 0 0 2%;
-    width: 100px;
-    height: 500px;
-    vertical-align: top;
-  }
-
-  @media screen and (max-width: 1100px) {
-    .ClassifyBox {
-      display: none;
-    }
-  }
-
-  .ladder {
-    position: relative;
-    width: 100px;
-    height: 100%;
-  }
-
-  .sidebarBox {
-    position: absolute;
-    right: 0;
-    top: 0;
-    width: 250px;
   }
 
   .slogan {
