@@ -1,9 +1,7 @@
 import request from "./request";
 export default function getClassifyAndTag(type) {
-  return request({
-    method: 'post',
-    url: '/article/getTagAndClassify'
-  }).then(res => {
+  return request.post('/api/article/getTagAndClassify')
+    .then(res => {
     if(type === 'classify') {
       return res.data.datas[0].classify
     } else if (type === 'tag') {

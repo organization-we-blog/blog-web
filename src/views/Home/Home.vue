@@ -3,7 +3,7 @@
 <!--    首页大图-->
     <div class="coverImg">
       <div class="titleBox">
-        <h1 class="slogan">记录成长的点滴,做一个爱分享的程序猿</h1>
+        <h1 class="slogan">编程其实并不难，只是你太想速成</h1>
         <div class="divButton">About The Blog</div>
       </div>
     </div>

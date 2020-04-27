@@ -47,7 +47,7 @@
 </template>
 
 <script>
-  import getClassifyAndTag from '../../network/classifyAndTag'
+  import getClassifyAndTag from '../../api/classifyAndTag'
 
   export default {
     name: "ArticleTag",

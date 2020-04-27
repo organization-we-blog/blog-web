@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" id="html">
+<html lang="zh-CN" id="html">
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -30,34 +30,17 @@
       border-radius: 0;
       background: rgba(0, 0, 0, 0);
     }
+    html {
+      height: 100%;
+      width: 100%;
+    }
+    body,#app {
+       height: 100%;
+     }
+
   </style>
 </head>
 <body>
 <div id="app"></div>
-
-
-<script type="text/javascript" size="90" alpha="0.2" zIndex="6" src="./ribbon.js"></script><!--彩色条-->
-
-<canvas id="c" style="z-index: 1000;transition: all 1.5s"></canvas><!--加载动画-->
-<script id="shader-fs" type="x-shader/x-fragment">
-				#ifdef GL_ES
-				  precision highp float;
-				  #endif
-    		void main(void) {
-    		 gl_FragColor = vec4(0.2, 0.3, 0.4, 1.0);
-    		}
-		</script>
-<script id="shader-vs" type="x-shader/x-vertex">
-    	attribute vec3 vertexPosition;
-
-  	uniform mat4 modelViewMatrix;
-  	uniform mat4 perspectiveMatrix;
-
-   	void main(void) {
-  		gl_Position = perspectiveMatrix * modelViewMatrix * vec4(  vertexPosition, 1.0);
-  	}
-  </script>
-<script src="./index.js"></script>
-<img id="bgi" src="/img/cywl800.7648a725.jpg" width="0" height="0"><!--提前加载首页大图-->
 </body>
 </html>

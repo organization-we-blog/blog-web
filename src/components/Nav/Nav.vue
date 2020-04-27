@@ -72,6 +72,8 @@
         </div>
       </div>
     </div>
+    <!--   返回顶部-->
+    <div v-show="show" @click="BC" class="UP"><i class="el-icon-caret-top" style="color: #4b9fff;vertical-align: baseline"></i></div>
   </div>
 </template>
 
@@ -85,12 +87,28 @@
         BoxClass1: "box",
         BoxClass2: "box showNavBGC",
         searchBoxClass: "searchBox",
-        unfoldNav: false
+        unfoldNav: false,
+        show: false
       };
     },
     created() {
     },
     methods: {
+      BC() {
+        let i = 5;
+        let time = setInterval(() => {
+          if (document.getElementsByTagName("html")[0].scrollTop > 0) {
+            i += 10;
+            document.getElementsByTagName("html")[0].scrollTop -= i;
+            if (document.getElementsByTagName("html")[0].scrollTop < 0) {
+              document.getElementsByTagName("html")[0].scrollTop = 0;
+              clearInterval(time);
+            }
+          } else {
+            clearInterval(time);
+          }
+        }, 20);
+      },
       showSearch() {
         if (this.searchBoxClass === "searchBox showSearchBox") {
           this.searchBoxClass = "searchBox"
@@ -124,6 +142,13 @@
       }
     },
     mounted() {
+      document.onscroll = () => {
+        if (document.getElementsByTagName("html")[0].scrollTop > 400) {
+          this.show = true
+        } else {
+          this.show = false
+        }
+      }
       document.body.onscroll = () => {
         let scrollTop = document.getElementsByTagName("html")[0].scrollTop;
         if (scrollTop >= 380) {
@@ -282,6 +307,27 @@
 
   .mobile-nav-content .nav-draw {
 
+  }
+  .UP {
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    border-radius: 50%;
+    z-index: 4;
+    position: fixed;
+    right: 10%;
+    bottom: 10%;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    box-shadow: 0 0 6px rgba(0, 0, 0, .12);
+    transition: background-color 0.3s;
+    background-color: #ffffff;
+    text-align: center;
+  }
+
+  .UP:hover {
+    background-color: #f0f0f0;
   }
 
   @media screen and (max-width: 750px) {

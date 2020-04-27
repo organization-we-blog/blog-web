@@ -10,6 +10,23 @@ Vue.use(VueRouter);
 
 const routes = [
   {
+    path: '/admin',
+    name: 'Admin',
+    component: ()=>import("../admin/Admin.vue"),
+    redirect: "/admin/article_list",
+    children: [
+      {
+        path: 'article_list',
+        name: 'ArticleList',
+        component: ()=>import("../admin/views/ArticleList/ArticleList")
+      },{
+        path: 'new_article',
+        name: 'NewArticle',
+        component: ()=>import("../admin/views/NewArticle/NewArticle")
+      },
+    ]
+  },
+  {
     path: '',
     redirect: '/home'
   }, {
@@ -32,12 +49,9 @@ const routes = [
 ];
 
 const router = new VueRouter({
-  mode: 'history',
+  mode: "history",
   base: process.env.BASE_URL,
   routes,
-  scrollBehavior () {
-    return { x: 0, y: 0 }
-  }
 });
 
 export default router
