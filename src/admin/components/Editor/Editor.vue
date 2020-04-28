@@ -6,7 +6,7 @@
     :upload-image-config="uploadImageConfig"
     @upload-image="handleUploadImage"
     @save="saveContentText"
-    left-toolbar="undo redo clear | h bold italic strikethrough quote | ul ol table hr | usertoc tip link image code | save"
+    left-toolbar="undo redo clear | h bold italic strikethrough quote | ul ol table hr emoji todo-list | usertoc tip link image code | save"
     :height="height">
   </v-md-editor>
 </template>
@@ -75,6 +75,9 @@
         saveContentText(text,html){
           this.$emit('save', text,html)
         }
+      },
+      mounted() {
+
       }
     }
 </script>

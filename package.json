@@ -8,7 +8,7 @@
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
-    "@kangc/v-md-editor": "^1.2.9",
+    "@kangc/v-md-editor": "^1.2.10",
     "axios": "^0.19.2",
     "core-js": "^3.6.4",
     "element-ui": "^2.13.0",
