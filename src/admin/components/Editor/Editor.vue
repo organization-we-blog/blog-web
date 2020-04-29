@@ -12,7 +12,7 @@
 </template>
 
 <script>
-    import {uploaImg} from "../../api";
+    import {uploadArticleContentImg} from "../../api";
 
     export default {
         name: "Editor",
@@ -56,7 +56,7 @@
           const { files } = event.target;
           formdata.append('file',files[0])
           // 拿到 File 对象之后上传到文件服务器，然后向编辑框中插入对应的内容
-          uploaImg(formdata)
+          uploadArticleContentImg(formdata)
             .then(res=>{
               if(res.data.code===1){
                 this.$message.success('图片上传成功');

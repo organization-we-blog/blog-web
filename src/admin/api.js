@@ -5,6 +5,5 @@ export const getAllArticle = params =>
   request.post("/api/article/getAllArticle",params)
 
 //图片上传
-export const uploaImg = params =>
-  //request.post("/api/article/uploadImg",{params})
-  request.post("/api/article/uploadImg",params,{headers:{'content-type': 'application/json; charset=utf-8'}})
+export const uploadArticleContentImg = params =>
+  request.post("/api/article/uploadArticleContentImg",params,{headers:{'content-type': 'application/json; charset=utf-8'}})
