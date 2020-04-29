@@ -222,14 +222,19 @@
     },
     created() {
       this.initClassifyAndTag();
-      let {title,thumbnail,synopsis,author,content,category,tag} = JSON.parse(localStorage.getItem("art"));
-      this.addArticleFormData.content = content || "请开始编辑markdown,点击保存按钮可以避免刷新数据丢失哦";
-      this.addArticleFormData.title = title || "";
-      this.addArticleFormData.thumbnail = this.imageUrl = thumbnail || "";
-      this.addArticleFormData.synopsis = synopsis || "";
-      this.addArticleFormData.author = author || "5e931065a868630fb9a088cd";//一个暂时使用的用户
-      this.addArticleFormData.category = category || "";
-      this.addArticleFormData.tag = tag || "";
+      if(localStorage.getItem("art")){
+        let {title,thumbnail,synopsis,author,content,category,tag} = JSON.parse(localStorage.getItem("art"));
+        this.addArticleFormData.content = content || "请开始编辑markdown,点击保存按钮可以避免刷新数据丢失哦";
+        this.addArticleFormData.title = title || "";
+        this.addArticleFormData.thumbnail = this.imageUrl = thumbnail || "";
+        this.addArticleFormData.synopsis = synopsis || "";
+        this.addArticleFormData.author = author || "5e931065a868630fb9a088cd";//一个暂时使用的用户
+        this.addArticleFormData.category = category || "";
+        this.addArticleFormData.tag = tag || "";
+      }else {
+        this.addArticleFormData.content = "请开始编辑markdown,点击保存按钮可以避免刷新数据丢失哦";
+        this.addArticleFormData.author = "5e931065a868630fb9a088cd";//一个暂时使用的用户
+      }
     }
   }
 </script>

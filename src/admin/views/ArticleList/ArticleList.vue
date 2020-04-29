@@ -1,6 +1,7 @@
 <template>
   <div>
     <el-table
+      @sort-change="sorlTableData"
       @filter-change="filterChange"
       :data="showData.slice((this.pageIndex-1)*10,(this.pageIndex-1)*10 + 10)"
       style="width: 100%">
@@ -15,7 +16,7 @@
       </el-table-column>
       <el-table-column
         label="发布时间"
-        sortable
+        sortable="custom"
         prop="update_time">
       </el-table-column>
       <el-table-column
@@ -24,7 +25,7 @@
       </el-table-column>
       <el-table-column
         label="浏览量"
-        sortable
+        sortable="custom"
         prop="meta.pv">
       </el-table-column>
       <el-table-column
@@ -61,7 +62,7 @@
 </template>
 
 <script>
-  import {getAllArticle} from "../../api"
+  import {getAllArticle,deleteArticleById,getAllTagAndCategory} from "../../api"
   export default {
     name: "ArticleList",
     data() {
@@ -71,14 +72,7 @@
         searchValue: "",
         dataSum: 10,//数据数量（条）
         pageIndex: 1,//页数
-        categorys: [
-          { text: "javascript", value: "javascript" },
-          { text: "node.js", value: "node.js" },
-          { text: "vue.js", value: "vue.js" },
-          { text: "php", value: "php" },
-          { text: "react", value: "react" },
-          { text: "java", value: "java" }
-        ],
+        categorys: [],
       }
     },
     methods: {
@@ -86,12 +80,12 @@
         getAllArticle()
         .then(res=>{
           if(res.data.code === 1){
-            this.$message.success('数据获取成功');
+            this.$message.success('已经加载最新数据');
             this.tableData = res.data.datas;
             this.showData = res.data.datas;
             this.dataSum = res.data.datas.length;
           }else {
-            throw new Error("数据获取失败")
+            throw new Error("无法加载最新数据")
           }
         })
         .catch(()=>{
@@ -102,7 +96,6 @@
         this.searchValue = "";
         this.pageIndex = 1;
         for(let key in  filters){
-          console.log(filters[key].length);
           if(!(filters[key].length === 0 || filters[key].length === this.categorys.length)){//不选和全选效果一直
             let data = this.tableData.filter(data =>{
               return filters[key].includes(data.category.className)
@@ -121,12 +114,49 @@
       handleEdit(index, row) {
         console.log(index, row);
       },
+      //删除文章
       handleDelete(index, row) {
-        console.log(index, row);
+        deleteArticleById({id:row._id}).then(res=>{
+          if(res.data.code === 1){
+            this.$message.success(res.data.msg);
+          }else {
+            this.$message.error(res.data.msg);
+          }
+          this.init();
+        }).catch(()=>{
+          this.$message.error("服务器繁忙");
+          this.init();
+        })
       },
+      sorlTableData({column}){
+        let {order,property} = column;
+        switch (order) {
+            case "descending":
+              this.showData = this.showData.sort((a,b)=>{
+              a+b;
+              return eval(`a.${property}>b.${property}?1:-1`)
+            });break;
+          case "ascending":
+            this.showData = this.showData.sort((a,b)=>{
+              a+b;
+              return eval(`b.${property}>a.${property}?1:-1`)
+            });break;
+        }
+
+      }
     },
     mounted() {
       this.init();
+      getAllTagAndCategory().then(res=>{
+        if(res.data.code === 1){
+          this.categorys = res.data.datas[0].categorys.map(value=>{
+            return {
+              text: value.className,
+              value: value.className,
+            }
+          });
+        }
+      })
     },
     watch: {
       searchValue:{//监听搜索框

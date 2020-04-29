@@ -18,9 +18,8 @@ import "prismjs/components/prism-java"//添加的语法高亮
 import "prismjs/components/prism-json"
 import "prismjs/components/prism-c"
 
-
 VueMarkdownEditor.use(vuepressTheme);
-VueMarkdownEditor.use(createTipPlugin());
+  VueMarkdownEditor.use(createTipPlugin());
 VueMarkdownEditor.use(createEmojiPlugin());
 VueMarkdownEditor.use(createTodoListPlugin());
 VueMarkdownEditor.use(createLineNumbertPlugin());
