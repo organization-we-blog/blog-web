@@ -119,13 +119,12 @@
         deleteArticleById({id:row._id}).then(res=>{
           if(res.data.code === 1){
             this.$message.success(res.data.msg);
+            this.init();
           }else {
             this.$message.error(res.data.msg);
           }
-          this.init();
         }).catch(()=>{
           this.$message.error("服务器繁忙");
-          this.init();
         })
       },
       sorlTableData({column}){

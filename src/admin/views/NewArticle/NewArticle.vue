@@ -131,9 +131,13 @@
     },
     methods:{
       handleAvatarSuccess(res) {//上传缩略图成功回调
-        this.$message.success('图片上传成功');
-        this.imageUrl = res.datas[0].filepath;
-        this.addArticleFormData.thumbnail = res.datas[0].filepath;
+        if(res.code === 1){
+          this.$message.success(res.msg);
+          this.imageUrl = res.datas[0].filepath;
+          this.addArticleFormData.thumbnail = res.datas[0].filepath;
+        }else {
+          this.$message.error(res.msg);
+        }
       },
       handleAvatarError() {//上传缩略图失败回调
         this.$message.error('图片上传失败');
