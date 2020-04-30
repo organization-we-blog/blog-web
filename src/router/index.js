@@ -23,6 +23,14 @@ const routes = [
         path: 'new_article',
         name: 'NewArticle',
         component: ()=>import("../admin/views/NewArticle/NewArticle")
+      },{
+        path: 'user_list',
+        name: 'UserList',
+        component: ()=>import("../admin/views/UserList/UserList")
+      },{
+        path: 'user_role',
+        name: 'UserRole',
+        component: ()=>import("../admin/views/UserRole/UserRole")
       },
     ]
   },

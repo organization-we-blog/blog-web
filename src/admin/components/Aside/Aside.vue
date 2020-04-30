@@ -24,14 +24,28 @@
         <i class="el-icon-document-add"></i>
         <span slot="title">添加文章</span>
       </el-menu-item>
-      <el-menu-item index="/admin/new_article" disabled>
+      <el-menu-item index="/admin/1" disabled>
         <i class="el-icon-document-checked"></i>
         <span slot="title">文章审核</span>
       </el-menu-item>
     </el-submenu>
-    <el-menu-item index="3" disabled>
-      <i class="el-icon-setting"></i>
-      <span slot="title">网站类容</span>
+    <el-submenu index="/admin/users">
+      <template slot="title">
+        <i class="el-icon-user"></i>
+        <span>用户管理</span>
+      </template>
+      <el-menu-item index="/admin/user_list">
+        <i class="el-icon-s-custom"></i>
+        <span slot="title">用户列表</span>
+      </el-menu-item>
+      <!--<el-menu-item index="/admin/user_role">
+        <i class="el-icon-s-check"></i>
+        <span slot="title">角色管理</span>
+      </el-menu-item>-->
+    </el-submenu>
+    <el-menu-item index="6" disabled>
+      <i class="el-icon-s-tools"></i>
+      <span slot="title">站点管理</span>
     </el-menu-item>
     <el-menu-item index="5" disabled>
       <i class="el-icon-data-line"></i>
