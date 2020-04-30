@@ -1,52 +1,22 @@
 <template>
   <div id="app" name="app">
-    <div style="position: fixed;width:100%;top: 0;left: 0;z-index: 3;">
+    <div v-if="$route.fullPath.indexOf('/admin') !== 0" style="position: fixed;width:100%;top: 0;left: 0;z-index: 3;">
       <Nav></Nav>
     </div>
     <router-view>
       <!--展示页面的路由-->
     </router-view>
-    <div v-show="show" @click="BC" class="UP"><i class="el-icon-caret-top" style="color: #4b9fff"></i></div>
   </div>
 </template>
 
 <script>
   import Nav from "./components/Nav/Nav.vue"
-
   export default {
     data() {
-      return {
-        show: false
-      }
+      return {}
     },
-    methods: {
-      BC() {
-        let i = 5;
-        let time = setInterval(() => {
-          if (document.getElementsByTagName("html")[0].scrollTop > 0) {
-            i += 10;
-            document.getElementsByTagName("html")[0].scrollTop -= i;
-            if (document.getElementsByTagName("html")[0].scrollTop < 0) {
-              document.getElementsByTagName("html")[0].scrollTop = 0;
-              clearInterval(time);
-            }
-          } else {
-            clearInterval(time);
-          }
-        }, 20);
-
-      }
-    },
-    mounted() {
-      document.onscroll = () => {
-        if (document.getElementsByTagName("html")[0].scrollTop > 400) {
-          this.show = true
-        } else {
-          this.show = false
-        }
-      }
-
-    },
+    methods: {},
+    mounted() {},
     components: {Nav}
   }
 </script>
@@ -63,15 +33,16 @@
   * {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
+    vertical-align: top;
   }
 
   body {
     background-color: #f7f7f7;
   }
 
-  html {
-    height: 100%;
-    width: 100%;
+  .el-main[data-v-a74ee4b4]{
+    line-height: normal !important;
   }
 
   i {
@@ -100,26 +71,5 @@
 
   .icon-dianzan1:before {
     content: "\e8c3";
-  }
-
-  .UP {
-    width: 40px;
-    height: 40px;
-    line-height: 40px;
-    border-radius: 50%;
-    z-index: 4;
-    position: fixed;
-    right: 10%;
-    bottom: 10%;
-    align-items: center;
-    justify-content: center;
-    font-size: 20px;
-    box-shadow: 0 0 6px rgba(0, 0, 0, .12);
-    transition: background-color 0.3s;
-    background-color: #ffffff;
-  }
-
-  .UP:hover {
-    background-color: #f0f0f0;
   }
 </style>

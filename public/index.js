@@ -144,7 +144,7 @@ function loadScene() {
 
   //setInterval( drawScene, 1000 / 40 );
   animate();
-  setTimeout(timer, 1500);
+  setTimeout(timer, 1000);
 }
 var count = 0;
 var cn = 0;
@@ -393,7 +393,7 @@ function timer() {
         drawType = 0;
         document.getElementById("c").style.opacity = "0";
         document.getElementById("c").style.zIndex = "-1";
-      },500)
+      })
     }
   },200);
 }
