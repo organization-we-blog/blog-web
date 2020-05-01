@@ -19,7 +19,7 @@ import "prismjs/components/prism-json"
 import "prismjs/components/prism-c"
 
 VueMarkdownEditor.use(vuepressTheme);
-  VueMarkdownEditor.use(createTipPlugin());
+VueMarkdownEditor.use(createTipPlugin());
 VueMarkdownEditor.use(createEmojiPlugin());
 VueMarkdownEditor.use(createTodoListPlugin());
 VueMarkdownEditor.use(createLineNumbertPlugin());
@@ -30,7 +30,7 @@ Vue.config.productionTip = false
 Vue.use(ElementUI);
 Vue.component('SplitLine',SplitLine)
 new Vue({
-  router,
-  store,
+  router,//$router
+  store,//$store
   render: h => h(App)
 }).$mount('#app');
