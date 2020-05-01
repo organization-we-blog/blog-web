@@ -1,5 +1,8 @@
 <template>
   <div class="monitor">
+    <div class="title">
+      <h1>文章信息可视化面板</h1>
+    </div>
     <div id="artIntro">
       <h1>文章总数：243 (篇))</h1>
       <h1>文章总pv：1868746 (次)</h1>
@@ -274,6 +277,14 @@
 
 <style scoped lang="less">
   .monitor{
+    .title{
+      h1{
+        text-align: left;
+        font-size: 30px;
+        border-left: 6px #7fff7a solid;
+        padding-left: 15px;
+      }
+    }
     #artIntro{
       padding: 30px 0 0 0;
       text-align: left;
@@ -284,6 +295,9 @@
         margin: 15px 0;
         color: #409EFF;
       }
+    }
+    #artSubmit{
+      min-width: 600px;
     }
     #artDisByCatAndTag{
       display: block;
