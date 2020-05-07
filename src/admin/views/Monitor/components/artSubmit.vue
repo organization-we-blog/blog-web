@@ -170,6 +170,7 @@
     padding: 15px 30px;
     #userArtSubmit{
       width: 100%;
+      min-width: 550px;
       height: 100%;
       border: #eee 1px solid;
     }

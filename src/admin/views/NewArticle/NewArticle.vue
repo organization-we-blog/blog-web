@@ -6,7 +6,7 @@
       <el-input style="margin: 10px auto" v-model="addArticleFormData.title" placeholder="请输入标题"></el-input>
       <Editor
         @save="saveContentText"
-        :defaultContent="addArticleFormData.content"
+        v-model="addArticleFormData.content"
         height="500px">
       </Editor>
     </div>
@@ -154,9 +154,9 @@
         return isJPG && isLt1M;
       },
       saveContentText(){
-        //编辑器点击保存按钮后的回调，接收test，html两参数。分别是md和html两个内容
+        //编辑器点击保存按钮后的回调，接收text，html两参数。分别是md和html两个内容
         //将md存储到本地存储（防止刷新丢失数据）
-        localStorage.setItem("editorContentText",this.addArticleFormData.content);
+        localStorage.setItem("art",JSON.stringify(this.addArticleFormData));//保存文章信息
         this.$message.success('保存成功');
       },
       //确认添加分类后执行的函数
@@ -220,13 +220,15 @@
         })
       },
       saveArt(){
-        this.$message.success('已经保存');
         localStorage.setItem("art",JSON.stringify(this.addArticleFormData));//保存文章信息
+        this.$message.success('保存成功');
       }
     },
     created() {
       this.initClassifyAndTag();
+      console.log(localStorage.getItem("art"));
       if(localStorage.getItem("art")){
+
         let {title,thumbnail,synopsis,author,content,category,tag} = JSON.parse(localStorage.getItem("art"));
         this.addArticleFormData.content = content || "请开始编辑markdown,点击保存按钮可以避免刷新数据丢失哦";
         this.addArticleFormData.title = title || "";

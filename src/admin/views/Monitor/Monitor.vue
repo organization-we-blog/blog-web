@@ -9,6 +9,8 @@
     </div>
     <artSubmit></artSubmit>
     <TJSZ></TJSZ>
+    <ArtCommentsState></ArtCommentsState>
+    <FKLY></FKLY>
   </div>
 </template>
 
@@ -17,9 +19,11 @@
   import UserInfo from "./components/UserInfo";
   import artSubmit from "./components/artSubmit";
   import TJSZ from "./components/TJSZ";
+  import ArtCommentsState from "./components/ArtCommentsState";
+  import FKLY from "./components/FKLY";
   export default {
     name: "Monitor",
-    components:{ZYTJ,UserInfo,artSubmit,TJSZ}
+    components:{ZYTJ,UserInfo,artSubmit,TJSZ,ArtCommentsState,FKLY}
   }
 </script>
 
