@@ -7,7 +7,7 @@
     @close="handleClose"
     :collapse="isCollapse"
     style="text-align: left;height:100%">
-    <el-menu-item index="1" disabled>
+    <el-menu-item index="/admin/monitor">
       <i class="el-icon-monitor"></i>
       <span slot="title">仪表盘</span>
     </el-menu-item>
@@ -24,10 +24,14 @@
         <i class="el-icon-document-add"></i>
         <span slot="title">添加文章</span>
       </el-menu-item>
-      <el-menu-item index="/admin/1" disabled>
+      <el-menu-item index="/admin/article_comments" disabled>
         <i class="el-icon-document-checked"></i>
-        <span slot="title">文章审核</span>
+        <span slot="title">评论审核</span>
       </el-menu-item>
+      <!--<el-menu-item index="/admin/article_monitor">
+        <i class="el-icon-data-line"></i>
+        <span slot="title">可视化面板</span>
+      </el-menu-item>-->
     </el-submenu>
     <el-submenu index="/admin/users">
       <template slot="title">

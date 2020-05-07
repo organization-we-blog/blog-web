@@ -1,6 +1,6 @@
 <template>
   <div id="app" name="app">
-    <div v-if="$route.fullPath.indexOf('/admin') !== 0" style="position: fixed;width:100%;top: 0;left: 0;z-index: 3;">
+    <div v-if="$route.fullPath.indexOf('/admin') !== 0 && $route.fullPath.indexOf('/login') !== 0" style="position: fixed;width:100%;top: 0;left: 0;z-index: 3;">
       <Nav></Nav>
     </div>
     <router-view>

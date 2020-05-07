@@ -16,20 +16,28 @@ const routes = [
     redirect: "/admin/article_list",
     children: [
       {
+        path: 'monitor',
+        name: '仪表盘',
+        component: ()=>import("../admin/views/Monitor/Monitor")
+      },{
         path: 'article_list',
-        name: 'ArticleList',
+        name: '文章列表',
         component: ()=>import("../admin/views/ArticleList/ArticleList")
       },{
         path: 'new_article',
-        name: 'NewArticle',
+        name: '新建文章',
         component: ()=>import("../admin/views/NewArticle/NewArticle")
       },{
+        path: 'article_monitor',
+        name: '文章可视化面板',
+        component: ()=>import("../admin/views/ArticleMonitor/ArticleMonitor")
+      },{
         path: 'user_list',
-        name: 'UserList',
+        name: '用户列表',
         component: ()=>import("../admin/views/UserList/UserList")
       },{
         path: 'user_role',
-        name: 'UserRole',
+        name: '用户角色管理',
         component: ()=>import("../admin/views/UserRole/UserRole")
       },
     ]

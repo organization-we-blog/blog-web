@@ -6,7 +6,7 @@
         <Aside></Aside>
       </el-aside>
       <el-container style="">
-        <el-main style="background-color: #fff;">
+        <el-main style="background-color: #fafafa;">
           <router-view></router-view>
         </el-main>
       </el-container>
