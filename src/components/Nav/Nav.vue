@@ -120,7 +120,6 @@
         this.linkTo('/home')
       },
       toGather() {
-        console.log(1);
         this.linkTo('/gather')
       },
       toDiary() {

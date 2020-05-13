@@ -226,9 +226,7 @@
     },
     created() {
       this.initClassifyAndTag();
-      console.log(localStorage.getItem("art"));
       if(localStorage.getItem("art")){
-
         let {title,thumbnail,synopsis,author,content,category,tag} = JSON.parse(localStorage.getItem("art"));
         this.addArticleFormData.content = content || "请开始编辑markdown,点击保存按钮可以避免刷新数据丢失哦";
         this.addArticleFormData.title = title || "";

@@ -111,8 +111,8 @@
       handleCurrentChange(page){//切换分页回调
         this.pageIndex = page;
       },
-      handleEdit(index, row) {
-        console.log(index, row);
+      handleEdit(/*index, row*/) {
+        this.$message.error("编辑功能还没写呢!");
       },
       //删除文章
       handleDelete(index, row) {

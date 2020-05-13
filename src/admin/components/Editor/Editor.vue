@@ -23,6 +23,7 @@
   import 'prismjs/components/prism-c';
 
 
+
   export default {
     name: "Editor",
     components:{[VMdEditor.name]: VMdEditor},
@@ -63,11 +64,11 @@
     },
     methods:{
       handleUploadImage (event, insertImage) {
-        let formdata =  new FormData()
+        let formData =  new FormData()
         const { files } = event.target;
-        formdata.append('file',files[0])
+        formData.append('file',files[0])
         // 拿到 File 对象之后上传到文件服务器，然后向编辑框中插入对应的内容
-        uploadArticleContentImg(formdata)
+        uploadArticleContentImg(formData)
           .then(res=>{
             if(res.data.code===1){
               this.$message.success('图片上传成功');

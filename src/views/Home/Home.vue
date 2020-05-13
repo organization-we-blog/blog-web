@@ -56,7 +56,6 @@
     created() {
     },
     destroyed() {
-      console.log('home被销毁');
     }
   }
 </script>
