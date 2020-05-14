@@ -11,6 +11,8 @@ Vue.config.productionTip = false
 
 Vue.use(ElementUI);
 Vue.component('SplitLine',SplitLine)
+
+
 new Vue({
   router,//$router
   store,//$store
