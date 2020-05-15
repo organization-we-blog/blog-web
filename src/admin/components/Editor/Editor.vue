@@ -70,7 +70,7 @@
         // 拿到 File 对象之后上传到文件服务器，然后向编辑框中插入对应的内容
         uploadArticleContentImg(formData)
           .then(res=>{
-            if(res.data.code===1){
+            if(res.data.code===200){
               this.$message.success('图片上传成功');
               insertImage({
                 url: res.data.datas[0].filepath,

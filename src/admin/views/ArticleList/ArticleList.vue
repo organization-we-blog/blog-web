@@ -79,7 +79,7 @@
       init(){
         getAllArticle()
         .then(res=>{
-          if(res.data.code === 1){
+          if(res.data.code === 200){
             this.$message.success('已经加载最新数据');
             this.tableData = res.data.datas;
             this.showData = res.data.datas;
@@ -117,7 +117,7 @@
       //删除文章
       handleDelete(index, row) {
         deleteArticleById({id:row._id}).then(res=>{
-          if(res.data.code === 1){
+          if(res.data.code === 200){
             this.$message.success(res.data.msg);
             this.init();
           }else {
@@ -147,7 +147,7 @@
     mounted() {
       this.init();
       getAllTagAndCategory().then(res=>{
-        if(res.data.code === 1){
+        if(res.data.code === 200){
           this.categorys = res.data.datas[0].categorys.map(value=>{
             return {
               text: value.className,

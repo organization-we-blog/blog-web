@@ -131,7 +131,7 @@
     },
     methods:{
       handleAvatarSuccess(res) {//上传缩略图成功回调
-        if(res.code === 1){
+        if(res.code === 200){
           this.$message.success(res.msg);
           this.imageUrl = res.datas[0].filepath;
           this.addArticleFormData.thumbnail = res.datas[0].filepath;
@@ -164,7 +164,7 @@
         this.showAddClassifyInput = false;
         addArticlecates(this.addClassifyFormData)
           .then(res=>{
-            if(res.data.code === 1){
+            if(res.data.code === 200){
               this.$message.success(res.data.msg);
               this.initClassifyAndTag();
             }else {
@@ -180,7 +180,7 @@
         this.showAddTagInput = false;
         addArticleTag(this.addTagFormData)
         .then(res=>{
-          if(res.data.code === 1){
+          if(res.data.code === 200){
             this.$message.success(res.data.msg);
             this.initClassifyAndTag();
           }else {
@@ -195,7 +195,7 @@
       publishArticle(){
         addArticle(this.addArticleFormData)
           .then(res=>{
-            if(res.data.code === 1){
+            if(res.data.code === 200){
               this.$message.success(res.data.msg);
               //添加成功转跳至列表页并清空保存的数据
               localStorage.removeItem("art");
@@ -212,7 +212,7 @@
       initClassifyAndTag(){
         getAllTagAndCategory()
         .then(res=>{
-          if(res.data.code === 1){
+          if(res.data.code === 200){
             let {categorys,tags} = res.data.datas[0];
             this.categoryList = categorys;
             this.tagList = tags;
