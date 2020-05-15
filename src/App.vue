@@ -72,4 +72,34 @@
   .icon-dianzan1:before {
     content: "\e8c3";
   }
+  #c{
+    position: fixed;
+    top:0;
+    left: 0;
+    transition: all 1s;
+  }
+  html::-webkit-scrollbar {/*滚动条整体样式*/
+    width: 6px;     /*高宽分别对应横竖滚动条的尺寸*/
+    height: 6px;
+    scrollbar-arrow-color:red;
+
+  }
+  html::-webkit-scrollbar-thumb {/*滚动条里面小方块*/
+    border-radius: 5px;
+    -webkit-box-shadow: inset 0 0 5px rgba(0,0,0,0.2);
+    background: rgba(0,0,0,0.2);
+    scrollbar-arrow-color:red;
+  }
+  html::-webkit-scrollbar-track {/*滚动条里面轨道*/
+    -webkit-box-shadow: inset 0 0 5px rgba(0, 0, 0, 0);
+    border-radius: 0;
+    background: rgba(0, 0, 0, 0);
+  }
+  html {
+    height: 100%;
+    width: 100%;
+  }
+  body,#app {
+    height: 100%;
+  }
 </style>
