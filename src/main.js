@@ -5,10 +5,11 @@ import store from './store'
 import ElementUI from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
 import SplitLine from "./components/SplitLine/SplitLine";
-import '../src/assets/css/base.css'
+import '../src/assets/css/base.css';
+import requset from "./api/request";
 
-Vue.config.productionTip = false
-
+Vue.config.productionTip = false;
+Vue.prototype.$request = requset;
 Vue.use(ElementUI);
 Vue.component('SplitLine',SplitLine)
 

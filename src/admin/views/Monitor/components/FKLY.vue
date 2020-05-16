@@ -160,7 +160,7 @@
         var series = [];
         // eslint-disable-next-line no-unused-vars
         [['贵州', chinaDatas]].forEach(function(item, i) {
-          console.log(item)
+          // console.log(item)
           series.push({
               type: 'lines',
               zlevel: 2,

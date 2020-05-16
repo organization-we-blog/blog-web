@@ -1,5 +1,5 @@
 <template><!--文章分类组件-->
-  <div class="ArticleClassifyBox">
+  <div class="ArticleClassifyBox" @click="click">
     <h3><i class="el-icon-s-order"></i>文章分类</h3>
   <SplitLine/>
   </div>
@@ -12,18 +12,21 @@
     name: "ArticleClassify",
     data() {
       return {
-        classify: []
+        classifys: []
       }
     },
     methods: {
       notify() {
         this.$message('暂未开放！')
+      },
+      click(){
+        alert(1)
       }
     },
-    created() {
+    async created() {
       //请求classify数据
-      getClassifyAndTag('classify').then(res => {
-        this.classify = res
+      this.classifys =  getClassifyAndTag('categorys').then(res=> {
+        console.log(res);
       })
     }
   }

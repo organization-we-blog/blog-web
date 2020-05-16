@@ -4,7 +4,7 @@ import request from "../api/request";
 export const getAllArticle = params =>
   request.post("http://49.234.9.206:3002/article/getAllArticle",params);
 
-//图片上传
+//文章图片上传
 export const uploadArticleContentImg = params =>
   request.post("http://49.234.9.206:3002/article/uploadArticleContentImg",params,{headers:{'content-type': 'application/json; charset=utf-8'}})
 
@@ -27,3 +27,11 @@ export const addArticle = params =>
 //删除文章
 export const deleteArticleById = params =>
   request.post("http://49.234.9.206:3002/article/deleteArticleById",params);
+
+//获取所有用户
+export const getAllUser = params =>
+  request.get('/api/user/getAll', params)
+
+//根据id查询用户
+export const getUserById = (id, params) =>
+  request.get(`/api/users/${id}`, params);

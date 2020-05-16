@@ -10,3 +10,13 @@ body {
   padding: 0 !important;
   margin: 0;
 }
+button {
+  outline: none;
+  background: none;
+  border:none;
+}
+
+/*解决element表头与内容对不齐问题*/
+.el-table th.gutter{
+  display: table-cell!important;
+}

@@ -35,38 +35,34 @@
     <!--    mobile导航栏-->
     <div style="display: none" class="mobile-nav">
       <i class="el-icon-menu unfold" @click="unfold"></i>
-      <el-input
-        placeholder="请输入内容"
-        v-model="searchValue"
-        class="searchInput searchInput-mobile">
-        <i slot="prefix" class="el-input__icon el-icon-search"></i>
+<!--      <el-input-->
+<!--        placeholder="请输入内容"-->
+<!--        v-model="searchValue"-->
+<!--        class="searchInput searchInput-mobile">-->
+<!--&lt;!&ndash;        <i slot="prefix" class="el-input__icon el-icon-search"></i>&ndash;&gt;-->
+<!--        <el-button slot="append" icon="el-icon-search"></el-button>-->
+<!--      </el-input>-->
+      <el-input placeholder="请输入内容" v-model="searchValue" class="searchInput searchInput-mobile">
+        <el-button slot="append" icon="el-icon-search"></el-button>
       </el-input>
       <i class="el-icon-search mobile-search"></i>
-<!--      <el-drawer :show-close="false"-->
-<!--                 :visible.sync="drawer"-->
-<!--                 :modal-append-to-body="false"-->
-<!--                 :with-header="false"-->
-<!--                 direction="ttb"-->
-<!--                 size="40%">-->
-
-<!--      </el-drawer>-->
     </div>
     <!--    mobile导航内容-->
     <div class="mobile-nav-content" :class="unfoldNav?'show-mobile-nav':''">
       <div class="nav-draw">
-        <div>
-          <i class="el-icon-s-home"></i>
+        <div @click="toHome">
+          <i class="el-icon-house"></i>
           首页
         </div>
-        <div>
-          <i class="el-icon-s-management"></i>
+        <div @click="toGather">
+          <i class="el-icon-document"></i>
           归档
         </div>
-        <div>
+        <div @click="toDiary">
           <i class="el-icon-edit-outline"></i>
           日记
         </div>
-        <div>
+        <div @click="toMessageBoard">
           <i class="el-icon-message"></i>
           留言
         </div>
@@ -130,14 +126,17 @@
       },
       //路由跳转
       linkTo(path) {
-        let currentPath = this.$route.path;
-        if (currentPath.indexOf(path) === -1) {
+        this.hideNav()
+        if (this.$route.path.indexOf(path) === -1) {
           this.$router.push(path)
         }
       },
       //mobile展开导航
       unfold(){
         this.unfoldNav = !this.unfoldNav
+      },
+      hideNav(){
+        this.unfoldNav = false
       }
     },
     mounted() {
@@ -150,6 +149,7 @@
       }
       document.body.onscroll = () => {
         let scrollTop = document.getElementsByTagName("html")[0].scrollTop;
+        if(scrollTop) this.hideNav();
         if (scrollTop >= 380) {
           this.BocClass = this.BoxClass2
         } else {
@@ -174,7 +174,6 @@
     width: 100px;
     font-size: 17px;
     color: #2c3e50;
-
   }
 
   .showNavBGC {
@@ -262,12 +261,20 @@
     color: #35affb;
   }
 
+  .nav-draw > div {
+    cursor: pointer;
+  }
+
   .mobile-nav .unfold,
   .mobile-nav .mobile-search,
   .mobile-nav .searchInput-mobile {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
+  }
+
+  .searchInput-mobile >>> input {
+    border-radius: 0!important;
   }
 
   .mobile-nav .unfold {
@@ -290,14 +297,17 @@
     padding: 20px 20px .1px;
     text-align: left;
     background-color: rgb(255, 255, 255);
-    visibility: hidden;
-    transition: all .3s;
-    opacity: 0;
+    /*visibility: hidden;*/
+    display: none;
+    /*transition: all .3s;*/
+    /*height: 0;*/
+    /*opacity: 0;*/
   }
   .show-mobile-nav{
-    visibility: visible;
-    height: auto;
-    opacity: .8;
+    /*visibility: visible;*/
+    display: block;
+    /*height: auto;*/
+    /*opacity: .8;*/
   }
 
   .nav-draw > div {

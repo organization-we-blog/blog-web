@@ -36,6 +36,12 @@ const routes = [
         name: '用户列表',
         component: ()=>import("../admin/views/UserList/UserList")
       },{
+        path: 'user_edit/:id',
+        name: '编辑用户',
+        component: ()=>import("../admin/views/UserList/components/EditUser"),
+        props: true
+      }
+      ,{
         path: 'user_role',
         name: '用户角色管理',
         component: ()=>import("../admin/views/UserRole/UserRole")

@@ -9,37 +9,10 @@
            @mouseleave="hidMask"
            @click="notify"
            class="tag"
-           v-for="(item, index) in tags"
-           :key="index">
-        <span class="value">{{item.value}}</span>
-        <span class="mask" :style="{zIndex: showMask?'-1':'0'}">{{item.sum}}</span>
-      </div>
-      <div @mouseenter="showMask"
-           @mouseleave="hidMask"
-           @click="notify"
-           class="tag"
-           v-for="(item, index) in tags"
-           :key="index">
-        <span class="value">{{item.value}}</span>
-        <span class="mask" :style="{zIndex: showMask?'-1':'0'}">{{item.sum}}</span>
-      </div>
-      <div @mouseenter="showMask"
-           @mouseleave="hidMask"
-           @click="notify"
-           class="tag"
-           v-for="(item, index) in tags"
-           :key="index">
-        <span class="value">{{item.value}}</span>
-        <span class="mask" :style="{zIndex: showMask?'-1':'0'}">{{item.sum}}</span>
-      </div>
-      <div @mouseenter="showMask"
-           @mouseleave="hidMask"
-           @click="notify"
-           class="tag"
-           v-for="(item, index) in tags"
-           :key="index">
-        <span class="value">{{item.value}}</span>
-        <span class="mask" :style="{zIndex: showMask?'-1':'0'}">{{item.sum}}</span>
+           v-for="(item) in tags"
+           :key="item._id">
+        <span class="value" :style="{backgroundColor:item.tagColor}">{{item.tagName}}</span>
+        <span class="mask" >{{item.tagName}}</span>
       </div>
     </div>
 
@@ -54,7 +27,6 @@
     data() {
       return {
         tags: [],
-        color: ['success', 'info', 'warning', 'danger']
       }
     },
     computed: {},
@@ -71,8 +43,10 @@
     },
     created() {
       //请求tag数据
-      getClassifyAndTag('tag').then(res => {
+      getClassifyAndTag('tags').then(res => {
         this.tags = res
+      }).catch(err=> {
+        console.log(err);
       })
     }
   }
@@ -114,6 +88,7 @@
   .tags .tag .value {
     display: inline-block;
     padding: 3px 6px;
+    color: white;
   }
 
   .tags .tag .mask {
