@@ -2,16 +2,19 @@
  * Ribbons Class File.
  * Creates low-poly ribbons background effect inside a target container.
  */
+export default function (Element) {
+
+
 (function (name, factory)
 {
     if (typeof window === "object")
     {
-        window[name] = factory();
+        window[name] = factory(Element);
     }
 
-})("Ribbons", function ()
+})("Ribbons", function (Element)
 {
-    var _w = window,
+  var _w = window,
     _b = document.body,//返回html dom中的body节点 即<body>
     _d = document.documentElement;//返回html dom中的root 节点 即<html>
 
@@ -35,6 +38,7 @@
     };
 
     // screen helper
+  // eslint-disable-next-line no-unused-vars
     var screenInfo = function (e)
     {
         var width = Math.max(0, _w.innerWidth || _d.clientWidth || _b.clientWidth || 0),
@@ -168,6 +172,7 @@
             {
                 for (var key in options)
                 {
+                  // eslint-disable-next-line no-prototype-builtins
                     if (options.hasOwnProperty(key))
                     {
                         this._options[key] = options[key];
@@ -189,8 +194,11 @@
                 this._canvas.style["border"] = "0";
                 this._canvas.style["outline"] = "0";
                 this._canvas.style["left"] = "0";
+              // eslint-disable-next-line no-mixed-spaces-and-tabs
                	this._canvas.style["top"] = "0";
+              // eslint-disable-next-line no-mixed-spaces-and-tabs
                	this._canvas.style["width"] = "100%";
+              // eslint-disable-next-line no-mixed-spaces-and-tabs
                	this._canvas.style["height"] = "100%";
                 this._canvas.style["z-index"] = "-1";
 				/*this._canvas.style["background-color"]="#1f1f1f";*/
@@ -200,10 +208,9 @@
                 this._context = this._canvas.getContext("2d");
                 this._context.clearRect(0, 0, this._width, this._height);
                 this._context.globalAlpha = this._options.colorAlpha;
-
-                window.addEventListener("resize", this._onResize);
-                window.addEventListener("scroll", this._onScroll);
-                document.body.appendChild(this._canvas);
+              console.log(Element);
+                Element.appendChild(this._canvas);
+              console.log(Element);
             }
             catch (e) {
                 console.warn("Canvas Context Error: " + e.toString());
@@ -249,6 +256,7 @@
             delay = 0;
 
             // buils ribbon sections
+          // eslint-disable-next-line no-constant-condition
             while (true)
             {
                 if (stop <= 0) break;stop--;
@@ -426,4 +434,11 @@
     // export
     return Factory;
 });
-new Ribbons();
+  // eslint-disable-next-line no-undef
+  new Ribbons(Element);
+}
+/*// eslint-disable-next-line no-undef
+ function (Element) {
+
+
+}*/

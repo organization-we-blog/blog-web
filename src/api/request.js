@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 let requset = axios.create({
-  // baseURL: 'http://49.234.9.206:3002',
+  baseURL: 'http://49.234.9.206:3002',
   timeout: 10 * 1000,
   headers: {
     'content-type': 'application/json; charset=utf-8',
@@ -13,10 +13,8 @@ let requset = axios.create({
 
 // 添加请求拦截器
 requset.interceptors.request.use(function (config) {
-  config.headers = {
-    token: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwYXJhbXMiOnsidXNlcm5hbWUiOiJhZG1pbiIsInBhc3N3b3JkIjoiZTEwYWRjMzk0OWJhNTlhYmJlNTZlMDU3ZjIwZjg4M2UifSwiZXhwIjoxNTg5NjMzOTE4LCJpYXQiOjE1ODk2MjMxMTh9.GJ1W1TKwWDVKPZUmTeYnp66VvUhHvW0M_QPsf_gC0KM'
-  }
   // 在发送请求之前做些什么
+  config.headers['token'] = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwYXJhbXMiOnsidXNlcm5hbWUiOiJ0ZXN0MSIsInBhc3N3b3JkIjoiZTEwYWRjMzk0OWJhNTlhYmJlNTZlMDU3ZjIwZjg4M2UifSwiZXhwIjoxNTg5NjM2MDkwLCJpYXQiOjE1ODk2MjUyOTB9.OPgYWQTGQPyHxFZxB6uZoprYs-fDJD2LTFi-CLHIDJ0";
   return config;
 }, function (error) {
   // 对请求错误做些什么

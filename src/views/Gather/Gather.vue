@@ -1,5 +1,9 @@
 <template>
   <div style="margin-top: 100px">
+    <!--导航条-->
+    <div style="position: fixed;width:100%;top: 0;left: 0;z-index: 3;">
+      <Nav></Nav>
+    </div>
     <BodyContainer>
       <!--左侧边栏容器-->
       <template v-slot:left-bar>
@@ -28,6 +32,7 @@
 </template>
 
 <script>
+  import Nav from "../../components/Nav/Nav.vue"
   import SliderBarLeft from "../../components/SliderBarLeft/SliderBarLeft";
   import BodyContainer from "../../components/BodyContainer/BodyContainer";
   import SliderBarRight from "../../components/SliderBarRight/SliderBarRight";
@@ -36,6 +41,7 @@
   export default {
     name: "Gather",
     components: {
+      Nav,
       SliderBarLeft,
       BodyContainer,
       SliderBarRight,

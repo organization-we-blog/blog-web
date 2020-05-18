@@ -1,8 +1,5 @@
 <template>
   <div id="app" name="app">
-    <div v-if="$route.fullPath.indexOf('/admin') !== 0 && $route.fullPath.indexOf('/login') !== 0" style="position: fixed;width:100%;top: 0;left: 0;z-index: 3;">
-      <Nav></Nav>
-    </div>
     <router-view>
       <!--展示页面的路由-->
     </router-view>
@@ -10,14 +7,12 @@
 </template>
 
 <script>
-  import Nav from "./components/Nav/Nav.vue"
   export default {
     data() {
       return {}
     },
     methods: {},
     mounted() {},
-    components: {Nav}
   }
 </script>
 

@@ -1,22 +1,26 @@
 <template><!--首页-->
   <div class="home">
-<!--    首页大图-->
+    <!--导航条-->
+    <div style="position: fixed;width:100%;top: 0;left: 0;z-index: 3;">
+      <Nav></Nav>
+    </div>
+    <!--    首页大图-->
     <div class="coverImg">
       <div class="titleBox">
         <h1 class="slogan">编程其实并不难，只是你太想速成</h1>
         <div class="divButton">About The Blog</div>
       </div>
     </div>
-<!--    占位盒子-->
+    <!--    占位盒子-->
     <div style="height: 100vh"></div>
-<!--    提示信息-->
+    <!--    提示信息-->
     <div class="noticeBox">
       <div style="position: relative;margin: 0 auto;width: auto">
         <i class="el-icon-bell" style="font-size: 35px;vertical-align:top;"></i>
         <span class="notice">婴儿网站，还请各位大佬手下留情</span>
       </div>
     </div>
-<!--    主体内容-->
+    <!--    主体内容-->
     <div style="width:100%;">
       <BodyContainer>
         <template v-slot:left-bar>
@@ -36,16 +40,18 @@
 </template>
 <script>
   // 组件
+  import Nav from "../../components/Nav/Nav.vue"
   import BodyContainer from "../../components/BodyContainer/BodyContainer";
   import ArticleList from './components/ArticleList.vue';
   import RecArt from './components/RecArt.vue';
   import SliderBarLeft from "../../components/SliderBarLeft/SliderBarLeft";
   import SliderBarRight from "../../components/SliderBarRight/SliderBarRight";
   import Footer from '../../components/Footer/Footer.vue'
-
+  import bgCanvas from "../../assets/js/ribbon"
   export default {
     name: 'Home',
     components: {
+      Nav,
       BodyContainer,
       ArticleList,
       RecArt,
@@ -56,6 +62,9 @@
     created() {
     },
     destroyed() {
+    },
+    mounted() {
+      bgCanvas(document.getElementsByClassName("home")[0])
     }
   }
 </script>
