@@ -30,8 +30,8 @@ export const deleteArticleById = params =>
 
 //获取所有用户
 export const getAllUser = params =>
-  request.get('/api/user/getAll', params)
+  request.get('/user/getAll', params)
 
 //根据id查询用户
 export const getUserById = (id, params) =>
-  request.get(`/api/users/${id}`, params);
+  request.get(`/users/${id}`, params);
