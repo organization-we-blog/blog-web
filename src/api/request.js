@@ -14,7 +14,6 @@ let requset = axios.create({
 // 添加请求拦截器
 requset.interceptors.request.use(function (config) {
   // 在发送请求之前做些什么
-  //向请求头中添加token字段
   config.headers['token'] = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwYXJhbXMiOnsidXNlcm5hbWUiOiJ0ZXN0MSIsInBhc3N3b3JkIjoiZTEwYWRjMzk0OWJhNTlhYmJlNTZlMDU3ZjIwZjg4M2UifSwiZXhwIjoxNTg5NjM2MDkwLCJpYXQiOjE1ODk2MjUyOTB9.OPgYWQTGQPyHxFZxB6uZoprYs-fDJD2LTFi-CLHIDJ0";
   return config;
 }, function (error) {
