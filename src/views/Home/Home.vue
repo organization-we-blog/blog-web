@@ -21,7 +21,7 @@
       </div>
     </div>
     <!--    主体内容-->
-    <div style="width:100%;">
+    <!--<div style="width:100%;">
       <BodyContainer>
         <template v-slot:left-bar>
           <SliderBarLeft/>
@@ -34,30 +34,30 @@
           <SliderBarRight/>
         </template>
       </BodyContainer>
-    </div>
+    </div>-->
     <Footer/>
   </div>
 </template>
 <script>
   // 组件
   import Nav from "../../components/Nav/Nav.vue"
-  import BodyContainer from "../../components/BodyContainer/BodyContainer";
-  import ArticleList from './components/ArticleList.vue';
-  import RecArt from './components/RecArt.vue';
-  import SliderBarLeft from "../../components/SliderBarLeft/SliderBarLeft";
-  import SliderBarRight from "../../components/SliderBarRight/SliderBarRight";
-  import Footer from '../../components/Footer/Footer.vue'
+  // import BodyContainer from "../../components/BodyContainer/BodyContainer";
+  // import ArticleList from './components/ArticleList.vue';
+  // import RecArt from './components/RecArt.vue';
+  // import SliderBarLeft from "../../components/SliderBarLeft/SliderBarLeft";
+  // import SliderBarRight from "../../components/SliderBarRight/SliderBarRight";
+  // import Footer from '../../components/Footer/Footer.vue'
   import bgCanvas from "../../assets/js/ribbon"
   export default {
     name: 'Home',
     components: {
       Nav,
-      BodyContainer,
+/*      BodyContainer,
       ArticleList,
       RecArt,
       SliderBarLeft,
       SliderBarRight,
-      Footer,
+      Footer,*/
     },
     created() {
     },

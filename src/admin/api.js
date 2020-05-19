@@ -35,3 +35,7 @@ export const getAllUser = params =>
 //根据id查询用户
 export const getUserById = (id, params) =>
   request.get(`/api/users/${id}`, params);
+
+//根据id查询错误日志
+// export const getErrLogById = (id, params) =>
+//   request.get(`/api/users/${id}`, params);

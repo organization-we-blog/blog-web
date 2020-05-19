@@ -45,6 +45,10 @@ const routes = [
         path: 'user_role',
         name: '用户角色管理',
         component: ()=>import("../admin/views/UserRole/UserRole")
+      },{
+        path: 'err_log/:id',
+        name: '错误日志详情',
+        component: ()=>import("../admin/views/ErrLogInfo/ErrLogInfo")
       },
     ]
   },

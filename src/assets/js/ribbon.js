@@ -208,9 +208,7 @@ export default function (Element) {
                 this._context = this._canvas.getContext("2d");
                 this._context.clearRect(0, 0, this._width, this._height);
                 this._context.globalAlpha = this._options.colorAlpha;
-              console.log(Element);
                 Element.appendChild(this._canvas);
-              console.log(Element);
             }
             catch (e) {
                 console.warn("Canvas Context Error: " + e.toString());
