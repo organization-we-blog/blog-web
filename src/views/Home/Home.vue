@@ -1,87 +1,73 @@
 <template><!--首页-->
   <div class="home">
-    <!--导航条-->
+    <!-- 导航条-->
     <div style="position: fixed;width:100%;top: 0;left: 0;z-index: 3;">
       <Nav></Nav>
     </div>
     <!--    首页大图-->
     <div class="coverImg">
+
+    </div>
+    <!--    占位盒子-->
+    <div style="height: 100vh">
       <div class="titleBox">
         <h1 class="slogan">编程其实并不难，只是你太想速成</h1>
         <div class="divButton">About The Blog</div>
       </div>
-    </div>
-    <!--    占位盒子-->
-    <div style="height: 100vh"></div>
-    <!--    提示信息-->
-    <div class="noticeBox">
-      <div style="position: relative;margin: 0 auto;width: auto">
-        <i class="el-icon-bell" style="font-size: 35px;vertical-align:top;"></i>
-        <span class="notice">婴儿网站，还请各位大佬手下留情</span>
+      <div class="next">
+        <span id="icon" class="el-icon-arrow-down"></span>
       </div>
     </div>
-    <!--    主体内容-->
-    <!--<div style="width:100%;">
-      <BodyContainer>
-        <template v-slot:left-bar>
-          <SliderBarLeft/>
-        </template>
-        <template v-slot:content-center>
-          <RecArt/>
-          <ArticleList/>
-        </template>
-        <template v-slot:right-bar>
-          <SliderBarRight/>
-        </template>
-      </BodyContainer>
-    </div>-->
-    <Footer/>
+    <!--主体内容-->
+    <div style="width:100%;background-color: #fff;">
+      <div class="home_content">
+        <Footer/>
+      </div>
+    </div>
   </div>
 </template>
 <script>
+  import anime from "animejs"
   // 组件
   import Nav from "../../components/Nav/Nav.vue"
-  // import BodyContainer from "../../components/BodyContainer/BodyContainer";
-  // import ArticleList from './components/ArticleList.vue';
-  // import RecArt from './components/RecArt.vue';
-  // import SliderBarLeft from "../../components/SliderBarLeft/SliderBarLeft";
-  // import SliderBarRight from "../../components/SliderBarRight/SliderBarRight";
-  // import Footer from '../../components/Footer/Footer.vue'
-  import bgCanvas from "../../assets/js/ribbon"
+  import Footer from '../../components/Footer/Footer.vue'
+  //import bgCanvas from "../../assets/js/ribbon"
   export default {
     name: 'Home',
     components: {
       Nav,
-/*      BodyContainer,
-      ArticleList,
-      RecArt,
-      SliderBarLeft,
-      SliderBarRight,
-      Footer,*/
+      Footer,
+    },
+    data(){
+      return{
+      }
     },
     created() {
     },
     destroyed() {
     },
     mounted() {
-      bgCanvas(document.getElementsByClassName("home")[0])
+      //bgCanvas(document.getElementsByClassName("home")[0])
+      anime({
+        targets: document.getElementById("icon"),
+        translateY: 20,
+        direction: 'alternate',
+        loop: true,
+        easing: 'easeInOutSine'
+      });
     }
   }
 </script>
 
-<style scoped>
-  * {
-    padding: 0;
-    margin: 0;
-  }
-
+<style scoped lang="less">
   .coverImg {
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     right: 0;
     height: 100%;
-    background-image: url(../../assets/images/cywl800.jpg);
+    z-index: -1;
+    background-image: url(http://attach.bbs.miui.com/forum/201305/24/123936nq3qmi7a3qjx2o3i.jpg);
     background-position: center center;
     background-size: cover;
     background-repeat: no-repeat;
@@ -94,9 +80,6 @@
     color: #aaaaaa;
     margin: 0 auto;
     border-radius: 5px;
-    position: relative;
-    top: 20px;
-    left: 15px;
     cursor: pointer;
     user-select: none;
     line-height: 40px;
@@ -146,6 +129,27 @@
   @media screen and (max-width: 760px) {
     .titleBox > h1 {
       font-size: 18px;
+    }
+  }
+  .next{
+    width: 100%;
+    position: absolute;
+    bottom: 50px;
+    text-align: center;
+  }
+  #icon{
+    font-size: 30px;
+    color: #cccccc;
+  }
+  .home_content{
+    width: 70%;
+    margin: 0 auto;
+    padding-top: 100px;
+    padding-bottom: 100px
+  }
+  @media screen and (max-width: 760px) {
+    .home_content {
+      width: 96%;
     }
   }
 </style>

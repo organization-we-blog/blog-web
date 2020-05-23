@@ -55,10 +55,20 @@
       <i class="el-icon-data-line"></i>
       <span slot="title">访问数据</span>
     </el-menu-item>
-    <el-menu-item index="4" disabled>
-      <i class="el-icon-setting"></i>
-      <span slot="title">站点安全</span>
-    </el-menu-item>
+    <el-submenu index="/admin/safety">
+      <template slot="title">
+        <i class="el-icon-setting"></i>
+        <span>站点安全</span>
+      </template>
+      <el-menu-item index="/admin/err_log/123">
+        <i class="el-icon-s-custom"></i>
+        <span slot="title">错误日志</span>
+      </el-menu-item>
+      <!--<el-menu-item index="/admin/user_role">
+        <i class="el-icon-s-check"></i>
+        <span slot="title">角色管理</span>
+      </el-menu-item>-->
+    </el-submenu>
   </el-menu>
 </template>
 

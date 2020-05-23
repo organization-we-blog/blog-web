@@ -91,6 +91,7 @@
     },
     methods: {
       BC() {
+        this.$refs
         let i = 5;
         let time = setInterval(() => {
           if (document.getElementsByTagName("html")[0].scrollTop > 0) {
@@ -165,7 +166,8 @@
     width: 100%;
     min-height: 60px;
     transition: all 1.0s;
-    background-color: rgba(250, 250, 250, .5);
+    /**background-color: rgba(250, 250, 250, .5);**/
+    background-color: rgba(250, 250, 250, 0);
   }
 
   .itemBtn {
