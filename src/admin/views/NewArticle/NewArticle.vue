@@ -17,14 +17,15 @@
         <el-upload
           style="text-align: center;"
           class="avatar-uploader"
-          action="/api/article/uploadArticleThumbnailImg"
+          action="http://49.234.9.206:3002/article/uploadArticleThumbnailImg"
           :show-file-list="false"
           :multiple="false"
           name="file"
           :on-success="handleAvatarSuccess"
           :on-error="handleAvatarError"
+          :headers="{token:this.$store.state.token}"
           :before-upload="beforeAvatarUpload">
-          <img v-if="imageUrl" :src="imageUrl" class="avatar">
+          <img v-if="imageUrl" :src="'http://49.234.9.206:3002'+imageUrl" class="avatar">
           <i v-else class="el-icon-plus avatar-uploader-icon"></i>
         </el-upload>
       </OptionItem>

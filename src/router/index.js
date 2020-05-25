@@ -71,6 +71,14 @@ const routes = [
     path: '/messageBoard',
     name: 'MessageBoard',
     component: MessageBoard
+  }, {
+    path: '/TestLogin',
+    name: '登录',
+    component: ()=>import("../views/Login/Login")
+  }, {
+    path: '/TestSign',
+    name: '注册',
+    component: ()=>import("../views/Sign/Sign")
   }
 ];
 
